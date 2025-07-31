@@ -15,22 +15,36 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef COLOR_H
+#define COLOR_H
 
-#include <QWidget>
-#include <QLayout>
-//#include <QPushButton>
+#include <QColor>
 
-namespace ui {
-	class MainWindow : public QWidget
-	{
+namespace companion {
+	class Color : public QColor {
 	public:
-		MainWindow();
+		Color();
+		Color(int r, int g, int b, std::string name);
+
 	private:
-		QLayout* mainLayout_;
-		//QPushButton* button;
+		std::string name_ = "";
+	};
+
+	class FurColor : public Color {
+	public:
+		enum class Rarity {
+			COMMON,
+			UNCOMMON,
+			RARE,
+			ULTRA_RARE,
+		};
+
+		FurColor();
+		FurColor(int r, int g, int b, std::string name, Rarity rarity);
+
+	private:
+		Rarity rarity_ = Rarity::COMMON;
 	};
 }
 
-#endif // MAINWINDOW_H
+#endif // COLOR_H

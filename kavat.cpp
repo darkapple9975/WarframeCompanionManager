@@ -15,22 +15,35 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#include "kavat.h"
 
-#include <QWidget>
-#include <QLayout>
-//#include <QPushButton>
+namespace companion {
 
-namespace ui {
-	class MainWindow : public QWidget
+	Kavat::Kavat(
+		Sex sex,
+		Breed breed,
+		Head head,
+		Body body,
+		Tail tail,
+		const std::shared_ptr<const FurColor> S1,
+		const std::shared_ptr<const FurColor> S2,
+		const std::shared_ptr<const FurColor> S3,
+		const std::shared_ptr<const FurColor> S4,
+		const std::shared_ptr<const Color> energyColor
+	)
+		: Companion(MAX_IMPRINT, sex, energyColor)
+		, S1_(S1)
+		, S2_(S2)
+		, S3_(S3)
+		, S4_(S4)
 	{
-	public:
-		MainWindow();
-	private:
-		QLayout* mainLayout_;
-		//QPushButton* button;
-	};
-}
+		breed_ = breed;
+		head_ = head;
+		body_ = body;
+		tail_ = tail;
+	}
 
-#endif // MAINWINDOW_H
+	int Kavat::getMaxImprint() const {
+		return MAX_IMPRINT;
+	}
+}

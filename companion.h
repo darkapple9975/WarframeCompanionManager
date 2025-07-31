@@ -15,22 +15,37 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef COMPANION_H
+#define COMPANION_H
 
-#include <QWidget>
-#include <QLayout>
-//#include <QPushButton>
+#include <memory>
 
-namespace ui {
-	class MainWindow : public QWidget
+#include <QObject>
+
+#include "color.h"
+
+namespace companion {
+
+	enum class Sex {
+		MALE,
+		FEMALE,
+		UNKNOWN,
+	};
+
+	class Companion : public QObject
 	{
 	public:
-		MainWindow();
+		Companion(int nImprint, Sex sex, std::shared_ptr<const Color> energyColor);
+		int getNImprint() const;
+		bool setNImprint(int nImprint);
+
+		virtual int getMaxImprint() const = 0;
+		
 	private:
-		QLayout* mainLayout_;
-		//QPushButton* button;
+		int nImprint_ = -1;
+		Sex sex_ = Sex::UNKNOWN;
+		std::shared_ptr<const Color> energyColor_;
 	};
 }
 
-#endif // MAINWINDOW_H
+#endif // COMPANION_H
