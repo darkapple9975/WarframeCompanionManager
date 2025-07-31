@@ -95,7 +95,6 @@ namespace companion {
 		inline static const std::shared_ptr<const Color> LILAC		= std::make_shared<Color>(0xDE, 0xC9, 0xFF, "Lilac");
 		inline static const std::shared_ptr<const Color> SILVER		= std::make_shared<Color>(0xC9, 0xD5, 0xFF, "Silver");
 
-
 		Kavat(
 			Sex sex,
 			Breed breed,

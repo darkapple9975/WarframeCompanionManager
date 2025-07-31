@@ -23,6 +23,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #include "mainWindow.h"
 #include "kavat.h"
+#include "kubrow.h"
 
 namespace ui {
 	MainWindow::MainWindow() {
@@ -58,23 +59,32 @@ namespace ui {
         resize(500, 400);
 
 
-        companion::Kavat* cat;
-        {
-            using namespace companion;
-            cat = new Kavat(
-                Sex::FEMALE, 
-                Kavat::Breed::SMEETA, 
-                Kavat::Head::TUFT, 
-                Kavat::Body::HYACINTH, 
-                Kavat::Tail::PEACOCK, 
-                Kavat::HYACINTH_BLUE, 
-                Kavat::HYACINTH_BLUE, 
-                Kavat::HYACINTH_BLUE, 
-                Kavat::HYACINTH_BLUE, 
-                Kavat::LOKA_BROWN
-            );
-        }
+        companion::Kavat* cat = new companion::Kavat(
+            companion::Sex::FEMALE,
+            companion::Kavat::Breed::SMEETA,
+            companion::Kavat::Head::TUFT,
+            companion::Kavat::Body::HYACINTH,
+            companion::Kavat::Tail::PEACOCK,
+            companion::Kavat::HYACINTH_BLUE,
+            companion::Kavat::HYACINTH_BLUE,
+            companion::Kavat::HYACINTH_BLUE,
+            companion::Kavat::HYACINTH_BLUE,
+            companion::Kavat::AMBER
+        );
         
         std::cout << cat->getNImprint() << std::endl;
+
+        companion::Kubrow* kubrow = new companion::Kubrow(
+            companion::Sex::MALE,
+            companion::Kubrow::Breed::RAKSA,
+            companion::Kubrow::Pattern::LOTUS,
+            companion::Kubrow::Build::ATHLETIC,
+            companion::Kubrow::AMBULAS_BLACK,
+            companion::Kubrow::AMBULAS_BLACK,
+            companion::Kubrow::AMBULAS_BLACK,
+            companion::Kubrow::LIGHT_GOLD
+        );
+
+        std::cout << kubrow->getNImprint() << std::endl;
 	}
 }

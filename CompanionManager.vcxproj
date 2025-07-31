@@ -105,12 +105,14 @@
     <ClCompile Include="color.cpp" />
     <ClCompile Include="companion.cpp" />
     <ClCompile Include="kavat.cpp" />
+    <ClCompile Include="Kubrow.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="companion.h" />
     <ClInclude Include="kavat.h" />
+    <ClInclude Include="kubrow.h" />
     <ClInclude Include="mainWindow.h" />
     <ClInclude Include="color.h" />
   </ItemGroup>
